@@ -1,0 +1,2 @@
+rootProject.name='WanAndroidMvvm'
+include ':app'
