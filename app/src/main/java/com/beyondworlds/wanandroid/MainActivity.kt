@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
      * 显示fragment
      */
     fun showFragment(index: Int) {
-        var transaction = supportFragmentManager.beginTransaction()
+        val transaction = supportFragmentManager.beginTransaction()
         hideFragments(transaction)
         when (index) {
             FRAGMENT_HOME -> {

@@ -2,6 +2,7 @@ package com.beyondworlds.wanandroid.mvvm
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.beyondworlds.wanandroid.activity.data.Result
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 
 /**
@@ -9,17 +10,17 @@ import com.chad.library.adapter.base.viewholder.BaseViewHolder
  *  on 2020/6/12
  *  有下拉刷新，上滑加载的界面
  */
-abstract class AbsListViewModel : BaseViewModel() {
+abstract class AbsListViewModel<T> : BaseViewModel() {
 
-    var mListUiModel = MutableLiveData<ListUiModel>()
-    var mPage=0;
+    var mListUiData = MutableLiveData<ListUiData<T>>()
+    var mPage = 0;
 
-    data class ListUiModel(
-        val showLoading: Boolean,
+    data class ListUiData<T>(
+        val isShowLoading: Boolean,
         val showError: String?,
-        val showEnd: Boolean, // 加载更多
+        val showSuccess: T,
+        val isLastData: Boolean, // 加载更多
         val isRefresh: Boolean, // 刷新
-        val isLast: Boolean,
         val needLogin: Boolean? = null
     )
 }

@@ -18,7 +18,7 @@ abstract class BaseRetrofitHelper {
     private val cookieJar by lazy {
         PersistentCookieJar(
             SetCookieCache(), SharedPrefsCookiePersistor(
-                App.sApplicatonContext
+                App.sApplicaton
             )
         )
     }
@@ -49,11 +49,11 @@ abstract class BaseRetrofitHelper {
             builder
                 .cookieJar(cookieJar)
                 .addInterceptor(httpLoggingInterceptor)
-                .addInterceptor(CookieInterceptor())
+//                .addInterceptor(CookieInterceptor())
                 .connectTimeout(TIME_OUT, TimeUnit.SECONDS)
                 .readTimeout(TIME_OUT, TimeUnit.SECONDS)
                 .writeTimeout(TIME_OUT, TimeUnit.SECONDS)
- //             .retryOnConnectionFailure(true) //连接失败重连
+            //             .retryOnConnectionFailure(true) //连接失败重连
             return builder.build()
         }
 

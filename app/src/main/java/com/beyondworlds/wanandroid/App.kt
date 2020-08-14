@@ -10,11 +10,11 @@ import kotlin.properties.Delegates
  */
 class App : Application() {
     companion object {
-        var sApplicatonContext: Context by Delegates.notNull()
+        var sApplicaton: Application by Delegates.notNull()
     }
 
     override fun onCreate() {
         super.onCreate()
-        sApplicatonContext = applicationContext
+        sApplicaton = this
     }
 }
